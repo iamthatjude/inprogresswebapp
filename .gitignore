@@ -10,5 +10,6 @@
 # Ignore files
 /gulpfile.js
 
-# Ignore directory
+# Ignore directories
 extras/
+sb-admin-pro-2.0.4/

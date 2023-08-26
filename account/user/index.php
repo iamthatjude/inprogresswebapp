@@ -5,7 +5,7 @@
 
 date_default_timezone_set('Africa/Lagos');
 
-include '../../system/config.sys.php'; // Database & Other Configurations
+include '../../system/config.sys.php'; // Configurations
 include '../../system/constants.sys.php'; // Defined Constants
 
 error_reporting(E_ALL);

@@ -12,6 +12,7 @@
 /login.html
 classes/Auth__old.class.php
 account/user/Auth.Login2.php
+system/config__old.sys.php
 
 # Ignore directories
 extras/

@@ -14,7 +14,7 @@ Class CSRF
 	public function __construct( Database $db )
 	{
 		ob_start();
-		//include '../system/config.sys.php'; // Database & Other Configurations
+		//include '../system/config.sys.php'; // Configurations
 		//include '../system/constants.sys.php'; // Constants Defined
 
 		$this->db = $db;

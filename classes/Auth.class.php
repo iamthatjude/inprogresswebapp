@@ -13,7 +13,7 @@ class Auth
     public function __construct( Database $db )
     {
         ob_start();
-        include '../system/config.sys.php'; // Database & Other Configurations
+        include '../system/config.sys.php'; // Configurations
         include '../system/constants.sys.php'; // Defined Constants
 		//include '../inc/send_mails.inc.php'; // Mailer Sender
 		//include '../inc/email_templates.inc.php'; // Email Templates

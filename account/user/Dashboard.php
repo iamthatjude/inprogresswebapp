@@ -7,7 +7,7 @@ $menu = ''; // Current Menu-Page
 $submenu = ''; // Current Submenu-Page
 $pageTitle = 'Dashboard'; // Page Title
 
-include '../../system/config.sys.php'; // Database & Other Configurations
+include '../../system/config.sys.php'; // Configurations
 include '../../system/constants.sys.php'; // Defined Constants
 include 'layout/header.layout.php';
 

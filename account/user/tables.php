@@ -3,7 +3,7 @@
  * tables.php -- Header
  */
 
- include '../../config/configurations.php'; // Database & Other Configurations
+ include '../../config/configurations.php'; // Configurations
  include '../../config/constant-variable.php'; // Constants Defined
  include 'layout/header.php';
 

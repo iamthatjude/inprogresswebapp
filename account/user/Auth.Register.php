@@ -14,7 +14,7 @@ $token = md5( uniqid(rand(), TRUE) . time() );
 $_SESSION['csrf_token'] = $token;
 $_SESSION['csrf_token_time'] = time();
 
-include '../../system/config.sys.php'; // Database & Other Configurations
+include '../../system/config.sys.php'; // Configurations
 include '../../system/constants.sys.php'; // Defined Constants
 
 error_reporting(E_ALL);

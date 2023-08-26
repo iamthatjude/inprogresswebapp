@@ -43,7 +43,7 @@ class Auth
 
         switch ( $user_type ){
             case "user":
-				$query = $this->db->query( "SELECT uid, username, fullname, password FROM ". TBL_USR . " WHERE username=?", [$auth_name] );
+				$query = $this->db->query( "SELECT uid, username, password, fullname, picture, status FROM ". TBL_USR . " WHERE username=?", [$auth_name] );
             	break;
             case "admin":
                 $query = $this->db->query( "SELECT aid, username, password FROM ". TBL_ADM . " WHERE username=?", [$auth_name] );
@@ -62,14 +62,13 @@ class Auth
 
 					if ( $user_type == 'user' ){ // USER
 						// Log In Successful
-                    	//$this->db->exec("UPDATE ". TBL_USR ." SET token='$token', online='Yes', last_login=NOW(), WHERE uid='".$row->uid."' AND username='".$row->username."'");
 						$params = [
 							$token,
-							"Yes",
+							'Yes',
 							$row->uid,
 							$row->username
 						];
-                    	$this->db->query( "UPDATE ". TBL_USR ." SET token=?, online=?, last_login=NOW(), WHERE uid=? AND username=?", $params );
+						$this->db->query( "UPDATE ". TBL_USR ." SET token=?, online=?, last_login=NOW() WHERE uid=? AND username=?", $params );
                         $output['auth'] = 'success';
 
                         $output['uid'] = $row->uid;

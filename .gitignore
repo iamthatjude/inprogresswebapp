@@ -9,7 +9,10 @@
 
 # Ignore files
 /gulpfile.js
+/login.html
+classes/Auth__old.class.php
+account/user/Auth.Login2.php
 
 # Ignore directories
 extras/
-sb-admin-pro-2.0.4/
+sb-admin-pro/

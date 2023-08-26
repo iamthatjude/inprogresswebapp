@@ -47,12 +47,14 @@ var auth = new Vue({
                 else if ( out.data.error == false && out.data.notice == 'success' ){
                     this.loginData = { auth_name:'', password:'' };
 
+                    this.authAlertLoader( 'Logging In...', 1 ); // close Swal Loader
+
                     $('#loginForm').hide();
                     document.getElementById('loginLoader').style.display = 'block';
                     setTimeout(function(){
                         //$("#statusAlert").fadeOut(delay); // hide alert
                         window.location.href = "Dashboard";
-                    }, 1e3);
+                    }, 4e3);
                 }
                 else {
                     this.authAlert( '', 'NOTICE', 'Something Went Wrong: '+ out.data.message, 'error', 'Okay' );
@@ -79,16 +81,6 @@ var auth = new Vue({
                 }
             })
             .then( out => {
-                /*if(out.data.error == false && out.data.notice == 'exists'){
-                    alert('Duplicate Account! Try a different username.');
-                } else if(out.data.error == false && out.data.notice == 'success'){
-                    alert('Registration successful');
-                    window.location.href = "login";
-                }
-                else {
-                    alert('something went wrong');
-                    console.log(out.data.message);
-                }*/
                 if ( out.data.error==true && out.data.notice=='exists' ){ // Email Exists
                     this.authAlert( 'email', 'NOTICE', out.data.message, 'warning', 'Try Again' );
                     //console.log( 'Email exists statement' )
@@ -97,12 +89,14 @@ var auth = new Vue({
                     //this.authAlert( '', 'NOTICE', out.data.message, 'success', 'Great!', '', "Auth.Verify" );
                     this.registerData = { username:'', email:'', password:'', confirm_password:'' };
 
+                    this.authAlertLoader( 'Creating Account...', 1 ); // close Swal Loader
+
                     $('#registerForm').hide();
                     document.getElementById('loginLoader').style.display = 'block';
                     setTimeout(function(){
                         //$("#statusAlert").fadeOut(delay); // hide alert
                         window.location.href = "Auth.Login";
-                    }, 3e3);
+                    }, 4e3);
                 }
                 else if ( out.data.error==true && out.data.notice=='fail' ){ // Account Not Created
                     this.authAlert( '', 'NOTICE', out.data.message, 'error', 'Okay' );
@@ -318,11 +312,12 @@ var auth = new Vue({
         //----------
         // SweetAlert2
         // Show Swal Loader When Submitting to API
-        authAlertLoader: function ( title ){
+        authAlertLoader: function ( title, timer='' ){
             Swal.fire({
                 title: `${title}`, // Loading...
                 heightAuto: false,
                 padding: '2em',
+                timer: timer, // load duration
                 allowOutsideClick: false,
                 allowEscapeKey: false,
                 didOpen: () => {

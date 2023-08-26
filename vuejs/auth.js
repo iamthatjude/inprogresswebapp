@@ -47,7 +47,7 @@ var auth = new Vue({
                 else if ( out.data.error == false && out.data.notice == 'success' ){
                     this.loginData = { auth_name:'', password:'' };
 
-                    this.authAlertLoader( 'Logging In...', 1 ); // close Swal Loader
+                    Swal.close(); // close Swal Loader
 
                     $('#loginForm').hide();
                     document.getElementById('loginLoader').style.display = 'block';
@@ -89,7 +89,7 @@ var auth = new Vue({
                     //this.authAlert( '', 'NOTICE', out.data.message, 'success', 'Great!', '', "Auth.Verify" );
                     this.registerData = { username:'', email:'', password:'', confirm_password:'' };
 
-                    this.authAlertLoader( 'Creating Account...', 1 ); // close Swal Loader
+                    Swal.close(); // close Swal Loader
 
                     $('#registerForm').hide();
                     document.getElementById('loginLoader').style.display = 'block';

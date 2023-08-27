@@ -14,7 +14,7 @@ ini_set('display_errors', 1);
 session_start();
 
 if ( isset($_SESSION['uid']) ){ // currently logged in | uid: User ID
-	header( 'Location: Dashboard' );
+	header( 'Location: Page.Dashboard' );
 }
 elseif ( !isset($_SESSION['uid']) || $_SESSION["loggedin"] !== true || trim($_SESSION['uid']) == '' ){ // not logged in | uid: User ID
 	header( 'Location: Auth.Login' );

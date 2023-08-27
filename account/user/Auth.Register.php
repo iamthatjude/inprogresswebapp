@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ( isset($_SESSION['uid']) ){ // currently logged in | uid: User ID
-	header( 'Location: Dashboard' );
+	header( 'Location: Page.Dashboard' );
 }
 
 ?>

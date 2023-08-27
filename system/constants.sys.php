@@ -3,17 +3,33 @@
  * constants.sys.php -- Defined Constants
  */
 
-// URL Definitions
+// Directory Definitions
 define( 'APP_URL', $base_url .'/' );
 define( 'ASSETS_URL', $base_url .'/template_assets/' );
 define( 'ADMIN_URL', $base_url .'/account/admin/' );
 define( 'USER_URL', $base_url .'/account/user/' );
+define( 'ACCOUNT_URL', $base_url .'/account/' ); /* never used; might be needed */
+
+
+// Page Name/Link Definitions
+// Admin
+
+// User
+define( 'USER_LOGIN', 'Auth.Login' ); // Log In
+define( 'USER_LOGOUT', 'Auth.Logout' ); // Log Out
+define( 'USER_REGISTER', 'Auth.Register' ); // Register
+define( 'USER_RE_PASSWORD', 'Auth.ResetPassword' ); // Reset Password
+define( 'USER_UP_PASSWORD', 'Auth.UpdatePassword' ); // Update Password
+define( 'USER_HOME', 'Page.Dashboard' ); // Homepage
+
 
 // General Definitions
 define( 'SITE_NAME', 'IN-PROGRESS WEB APP' );
 
+
 // API Keys
 //define( '', '' ); //
+
 
 // Database Table Definitions
 define( 'TBL_USR', 'users' ); // Users table

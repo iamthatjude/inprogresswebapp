@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ( isset($_SESSION['uid']) ){ // currently logged in | uid: User ID
-	header( 'Location: Page.Dashboard' );
+	header( 'Location: '. USER_HOME );
 }
 
 ?>
@@ -67,7 +67,7 @@ if ( isset($_SESSION['uid']) ){ // currently logged in | uid: User ID
                                         $redirect_to_page = $_GET['redirect_to'];
                                         echo "<input type='hidden' id='redirect_to' value='{$redirect_to_page}'>";
                                     } else {
-                                        echo "<input type='hidden' id='redirect_to' value='Dashboard'>";
+                                        echo "<input type='hidden' id='redirect_to' value='".USER_HOME."'>";
                                     }
                                     ?>
 
@@ -89,7 +89,7 @@ if ( isset($_SESSION['uid']) ){ // currently logged in | uid: User ID
                                             </div>
                                         </div>
                                         <!-- Form Group (forgot password link)-->
-                                        <div class="mb-3"><a class="small" href="Auth.ResetPassword">Forgot your password?</a></div>
+                                        <div class="mb-3"><a class="small" href="<?= USER_RE_PASSWORD; ?>">Forgot your password?</a></div>
                                         <!-- Form Group (login box)-->
                                         <div class="d-flex align-items-center justify-content-between mb-0">
                                             <div class="form-check">
@@ -104,7 +104,7 @@ if ( isset($_SESSION['uid']) ){ // currently logged in | uid: User ID
                                 <div class="card-body px-5 py-4">
                                     <div class="small text-center">
                                         New user?
-                                        <a href="Auth.Register">Create an account!</a>
+                                        <a href="<?= USER_REGISTER; ?>">Create an account!</a>
                                     </div>
                                 </div>
                             </div>

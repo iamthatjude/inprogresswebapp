@@ -97,6 +97,7 @@ if ( $action == 'login' ){
                     $out['error'] = false;
                     $out['notice'] = 'success'; // Notice
                     $out['message'] = LOGIN_SUCCESS; // Message
+                    $out['url'] = USER_HOME; // URL Redirection
                 } 
             } else {
                 $out['error'] = true;
@@ -147,11 +148,13 @@ if ( $action == 'register' ){
                 $out['error'] = false;
                 $out['notice'] = 'success'; // Notice
                 $out['message'] = REGISTER_SUCCESS_CODESENT; // Message
+                $out['url'] = USER_LOGIN; // URL Redirection
             }
             elseif ( ($register['auth'] == 'success') && ($register['mail'] == 'mail_not_sent') ){ // Account Created
                 $out['error'] = false;
                 $out['notice'] = 'success'; // Notice
                 $out['message'] = REGISTER_SUCCESS_CODENOTSENT . $register['token']; // Message
+                $out['url'] = USER_LOGIN; // URL Redirection
             }
             else { // Account Not Created
                 $out['error'] = true;

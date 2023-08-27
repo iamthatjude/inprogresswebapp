@@ -53,7 +53,7 @@ var auth = new Vue({
                     document.getElementById('loginLoader').style.display = 'block';
                     setTimeout(function(){
                         //$("#statusAlert").fadeOut(delay); // hide alert
-                        window.location.href = "Page.Dashboard";
+                        window.location.href = out.data.url;
                     }, 4e3);
                 }
                 else {
@@ -95,7 +95,7 @@ var auth = new Vue({
                     document.getElementById('loginLoader').style.display = 'block';
                     setTimeout(function(){
                         //$("#statusAlert").fadeOut(delay); // hide alert
-                        window.location.href = "Auth.Login";
+                        window.location.href = out.data.url;
                     }, 4e3);
                 }
                 else if ( out.data.error==true && out.data.notice=='fail' ){ // Account Not Created
@@ -191,7 +191,8 @@ var auth = new Vue({
         },*/
 
         checkFields( formAction, dType='' ){
-            if ( formAction == 'login' ){ // Login In
+            // Log In
+            if ( formAction == 'login' ){
                 $("#btnLogin").prop("disabled", true); // disable button
 
                 let fd = auth.toFormData(auth.loginData);
@@ -209,7 +210,9 @@ var auth = new Vue({
                     this.onLogin( fd, dType );
                 }
             }
-            if ( formAction == 'register' ){ // Register
+
+            // Register
+            if ( formAction == 'register' ){
                 $("#btnRegister").prop("disabled", true); // disable button
 
                 let fd = auth.toFormData(auth.registerData);
@@ -244,7 +247,9 @@ var auth = new Vue({
                     this.onRegister( fd );
                 }
             }
-            if ( formAction == 'updatepass' ){ // Update Password
+
+            // Update Password
+            if ( formAction == 'updatepass' ){
                 $("#btnUpdatePass").prop("disabled", true); // disable button
 
                 let fd = auth.toFormData(auth.updatepassData);
@@ -270,7 +275,9 @@ var auth = new Vue({
                     this.onUpdatePassword( fd, dType );
                 }
             }
-            /*if ( form_type == 'resetpassword' ){ // Reset Password
+
+            // Reset Password
+            /*if ( form_type == 'resetpassword' ){
                 let fd = auth.toFormData(auth.resetData);
 
                 if ( dType == 'send_mail' ){
@@ -325,6 +332,7 @@ var auth = new Vue({
                 }
             });
         },
+        
         // Show Swal Alert for Action Types & API Response
         authAlert: function ( inputField='', title='', message='', statusType='', btnTitle='', reload='', redirect='' ){
             Swal.hideLoading();

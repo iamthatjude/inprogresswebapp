@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ( isset($_SESSION['uid']) ){ // currently logged in | uid: User ID
-	header( 'Location: Page.Dashboard' );
+	header( 'Location: '. USER_HOME );
 }
 
 ?>
@@ -115,7 +115,7 @@ if ( isset($_SESSION['uid']) ){ // currently logged in | uid: User ID
                                 <div class="card-body px-5 py-4">
                                     <div class="small text-center">
                                         Have an account?
-                                        <a href="Auth.Login">Log in!</a>
+                                        <a href="<?= USER_LOGIN; ?>">Log in!</a>
                                     </div>
                                 </div>
                             </div>

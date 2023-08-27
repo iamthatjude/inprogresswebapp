@@ -20,14 +20,14 @@ if ( !isset($_SESSION['uid']) || $_SESSION["loggedin"] !== true || trim($_SESSIO
     $host = $_SERVER['HTTP_HOST'];
     $current_page = str_replace(".php", "", $_SERVER['PHP_SELF'] );
     $redirect_to = $protocol . $host . $current_page;
-	header( 'Location: ' . USER_URL . 'Auth.Login?redirect_to='. $redirect_to );
+	header( 'Location: '. USER_URL . USER_LOGIN .'?redirect_to='. $redirect_to );
 
 	exit;
 }
 
 // Log Out User If Login Has Been More Than 24hours
 if ( ($_SESSION['last_login'] + $max_time) < time() ){
-    header( 'Location: Auth.Logout' );
+    header( 'Location: '. USER_LOGOUT );
 }
 
 ?>

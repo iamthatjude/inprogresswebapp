@@ -1,122 +1,329 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <div id="layoutSidenav_nav">
+            <nav class="sidenav shadow-right sidenav-light">
+                <div class="sidenav-menu">
+                    <div class="nav accordion" id="accordionSidenav">
+                        <!-- Sidenav Menu Heading (Account)-->
+                        <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+                        <div class="sidenav-menu-heading d-sm-none">Account</div>
+                        <!-- Sidenav Link (Alerts)-->
+                        <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+                        <a class="nav-link d-sm-none" href="#!">
+                            <div class="nav-link-icon"><i data-feather="bell"></i></div>
+                            Alerts
+                            <span class="badge bg-warning-soft text-warning ms-auto">4 New!</span>
+                        </a>
+                        <!-- Sidenav Link (Messages)-->
+                        <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+                        <a class="nav-link d-sm-none" href="#!">
+                            <div class="nav-link-icon"><i data-feather="mail"></i></div>
+                            Messages
+                            <span class="badge bg-success-soft text-success ms-auto">2 New!</span>
+                        </a>
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-            </a>
+                        <!-- Sidenav Menu Heading (Home)-->
+                        <div class="sidenav-menu-heading">Home</div>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+                        <!-- Sidenav Accordion (Dashboard)-->
+                        <!-- <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
+                            <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                            Dashboards
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
+                            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                                <a class="nav-link" href="dashboard-1.html">
+                                    Default
+                                    <span class="badge bg-primary-soft text-primary ms-auto">Updated</span>
+                                </a>
+                                <a class="nav-link" href="dashboard-2.html">Multipurpose</a>
+                                <a class="nav-link" href="dashboard-3.html">Affiliate</a>
+                            </nav>
+                        </div> -->
+                        <!-- Sidenav Link (Dashboard)-->
+                        <a class="nav-link <? if ($menu=='dashboard') echo 'active'; ?>" href="Page.Dashboard">
+                            <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                            Dashboard
+                        </a>
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                        <!-- Sidenav Heading (Custom)-->
+                        <div class="sidenav-menu-heading">Custom</div>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
+                        <!-- Sidenav Accordion (Pages)-->
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                            Pages
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
+                            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
+                                <!-- Nested Sidenav Accordion (Pages -> Account)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAccount" aria-expanded="false" aria-controls="pagesCollapseAccount">
+                                    Account
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="account-profile.html">Profile</a>
+                                        <a class="nav-link" href="account-billing.html">Billing</a>
+                                        <a class="nav-link" href="account-security.html">Security</a>
+                                        <a class="nav-link" href="account-notifications.html">Notifications</a>
+                                    </nav>
+                                </div>
+                                <!-- Nested Sidenav Accordion (Pages -> Authentication)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    Authentication
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" data-bs-parent="#accordionSidenavPagesMenu">
+                                    <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesAuth">
+                                        <!-- Nested Sidenav Accordion (Pages -> Authentication -> Basic)-->
+                                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuthBasic" aria-expanded="false" aria-controls="pagesCollapseAuthBasic">
+                                            Basic
+                                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                        </a>
+                                        <div class="collapse" id="pagesCollapseAuthBasic" data-bs-parent="#accordionSidenavPagesAuth">
+                                            <nav class="sidenav-menu-nested nav">
+                                                <a class="nav-link" href="auth-login-basic.html">Login</a>
+                                                <a class="nav-link" href="auth-register-basic.html">Register</a>
+                                                <a class="nav-link" href="auth-password-basic.html">Forgot Password</a>
+                                            </nav>
+                                        </div>
+                                        <!-- Nested Sidenav Accordion (Pages -> Authentication -> Social)-->
+                                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuthSocial" aria-expanded="false" aria-controls="pagesCollapseAuthSocial">
+                                            Social
+                                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                        </a>
+                                        <div class="collapse" id="pagesCollapseAuthSocial" data-bs-parent="#accordionSidenavPagesAuth">
+                                            <nav class="sidenav-menu-nested nav">
+                                                <a class="nav-link" href="auth-login-social.html">Login</a>
+                                                <a class="nav-link" href="auth-register-social.html">Register</a>
+                                                <a class="nav-link" href="auth-password-social.html">Forgot Password</a>
+                                            </nav>
+                                        </div>
+                                    </nav>
+                                </div>
+                                <!-- Nested Sidenav Accordion (Pages -> Error)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    Error
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseError" data-bs-parent="#accordionSidenavPagesMenu">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="error-400.html">400 Error</a>
+                                        <a class="nav-link" href="error-401.html">401 Error</a>
+                                        <a class="nav-link" href="error-403.html">403 Error</a>
+                                        <a class="nav-link" href="error-404-1.html">404 Error 1</a>
+                                        <a class="nav-link" href="error-404-2.html">404 Error 2</a>
+                                        <a class="nav-link" href="error-500.html">500 Error</a>
+                                        <a class="nav-link" href="error-503.html">503 Error</a>
+                                        <a class="nav-link" href="error-504.html">504 Error</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="pricing.html">Pricing</a>
+                                <a class="nav-link" href="invoice.html">Invoice</a>
+                            </nav>
+                        </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <!-- Sidenav Accordion (Applications)-->
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseApps" aria-expanded="false" aria-controls="collapseApps">
+                            <div class="nav-link-icon"><i data-feather="globe"></i></div>
+                            Applications
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseApps" data-bs-parent="#accordionSidenav">
+                            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavAppsMenu">
+                                <!-- Nested Sidenav Accordion (Apps -> Knowledge Base)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#appsCollapseKnowledgeBase" aria-expanded="false" aria-controls="appsCollapseKnowledgeBase">
+                                    Knowledge Base
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="appsCollapseKnowledgeBase" data-bs-parent="#accordionSidenavAppsMenu">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="knowledge-base-home-1.html">Home 1</a>
+                                        <a class="nav-link" href="knowledge-base-home-2.html">Home 2</a>
+                                        <a class="nav-link" href="knowledge-base-category.html">Category</a>
+                                        <a class="nav-link" href="knowledge-base-article.html">Article</a>
+                                    </nav>
+                                </div>
+                                <!-- Nested Sidenav Accordion (Apps -> User Management)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#appsCollapseUserManagement" aria-expanded="false" aria-controls="appsCollapseUserManagement">
+                                    User Management
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="appsCollapseUserManagement" data-bs-parent="#accordionSidenavAppsMenu">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="user-management-list.html">Users List</a>
+                                        <a class="nav-link" href="user-management-edit-user.html">Edit User</a>
+                                        <a class="nav-link" href="user-management-add-user.html">Add User</a>
+                                        <a class="nav-link" href="user-management-groups-list.html">Groups List</a>
+                                        <a class="nav-link" href="user-management-org-details.html">Organization Details</a>
+                                    </nav>
+                                </div>
+                                <!-- Nested Sidenav Accordion (Apps -> Posts Management)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#appsCollapsePostsManagement" aria-expanded="false" aria-controls="appsCollapsePostsManagement">
+                                    Posts Management
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="appsCollapsePostsManagement" data-bs-parent="#accordionSidenavAppsMenu">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="blog-management-posts-list.html">Posts List</a>
+                                        <a class="nav-link" href="blog-management-create-post.html">Create Post</a>
+                                        <a class="nav-link" href="blog-management-edit-post.html">Edit Post</a>
+                                        <a class="nav-link" href="blog-management-posts-admin.html">Posts Admin</a>
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>
+
+                        <!-- Sidenav Accordion (Flows)-->
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
+                            <div class="nav-link-icon"><i data-feather="repeat"></i></div>
+                            Flows
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseFlows" data-bs-parent="#accordionSidenav">
+                            <nav class="sidenav-menu-nested nav">
+                                <a class="nav-link" href="multi-tenant-select.html">Multi-Tenant Registration</a>
+                                <a class="nav-link" href="wizard.html">Wizard</a>
+                            </nav>
+                        </div>
+
+
+                        <!-- Sidenav Heading (UI Toolkit)-->
+                        <div class="sidenav-menu-heading">UI Toolkit</div>
+
+                        <!-- Sidenav Accordion (Layout)-->
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="nav-link-icon"><i data-feather="layout"></i></div>
+                            Layout
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" data-bs-parent="#accordionSidenav">
+                            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavLayout">
+                                <!-- Nested Sidenav Accordion (Layout -> Navigation)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayoutSidenavVariations" aria-expanded="false" aria-controls="collapseLayoutSidenavVariations">
+                                    Navigation
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseLayoutSidenavVariations" data-bs-parent="#accordionSidenavLayout">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="layout-static.html">Static Sidenav</a>
+                                        <a class="nav-link" href="layout-dark.html">Dark Sidenav</a>
+                                        <a class="nav-link" href="layout-rtl.html">RTL Layout</a>
+                                    </nav>
+                                </div>
+                                <!-- Nested Sidenav Accordion (Layout -> Container Options)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayoutContainers" aria-expanded="false" aria-controls="collapseLayoutContainers">
+                                    Container Options
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseLayoutContainers" data-bs-parent="#accordionSidenavLayout">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="layout-boxed.html">Boxed Layout</a>
+                                        <a class="nav-link" href="layout-fluid.html">Fluid Layout</a>
+                                    </nav>
+                                </div>
+                                <!-- Nested Sidenav Accordion (Layout -> Page Headers)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsPageHeaders" aria-expanded="false" aria-controls="collapseLayoutsPageHeaders">
+                                    Page Headers
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseLayoutsPageHeaders" data-bs-parent="#accordionSidenavLayout">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="header-simplified.html">Simplified</a>
+                                        <a class="nav-link" href="header-compact.html">Compact</a>
+                                        <a class="nav-link" href="header-overlap.html">Content Overlap</a>
+                                        <a class="nav-link" href="header-breadcrumbs.html">Breadcrumbs</a>
+                                        <a class="nav-link" href="header-light.html">Light</a>
+                                    </nav>
+                                </div>
+                                <!-- Nested Sidenav Accordion (Layout -> Starter Layouts)-->
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsStarterTemplates" aria-expanded="false" aria-controls="collapseLayoutsStarterTemplates">
+                                    Starter Layouts
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseLayoutsStarterTemplates" data-bs-parent="#accordionSidenavLayout">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="starter-default.html">Default</a>
+                                        <a class="nav-link" href="starter-minimal.html">Minimal</a>
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>
+
+                        <!-- Sidenav Accordion (Components)-->
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseComponents" aria-expanded="false" aria-controls="collapseComponents">
+                            <div class="nav-link-icon"><i data-feather="package"></i></div>
+                            Components
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseComponents" data-bs-parent="#accordionSidenav">
+                            <nav class="sidenav-menu-nested nav">
+                                <a class="nav-link" href="alerts.html">Alerts</a>
+                                <a class="nav-link" href="avatars.html">Avatars</a>
+                                <a class="nav-link" href="badges.html">Badges</a>
+                                <a class="nav-link" href="buttons.html">Buttons</a>
+                                <a class="nav-link" href="cards.html">
+                                    Cards
+                                    <span class="badge bg-primary-soft text-primary ms-auto">Updated</span>
+                                </a>
+                                <a class="nav-link" href="dropdowns.html">Dropdowns</a>
+                                <a class="nav-link" href="forms.html">
+                                    Forms
+                                    <span class="badge bg-primary-soft text-primary ms-auto">Updated</span>
+                                </a>
+                                <a class="nav-link" href="modals.html">Modals</a>
+                                <a class="nav-link" href="navigation.html">Navigation</a>
+                                <a class="nav-link" href="progress.html">Progress</a>
+                                <a class="nav-link" href="step.html">Step</a>
+                                <a class="nav-link" href="timeline.html">Timeline</a>
+                                <a class="nav-link" href="toasts.html">Toasts</a>
+                                <a class="nav-link" href="tooltips.html">Tooltips</a>
+                            </nav>
+                        </div>
+
+                        <!-- Sidenav Accordion (Utilities)-->
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
+                            <div class="nav-link-icon"><i data-feather="tool"></i></div>
+                            Utilities
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseUtilities" data-bs-parent="#accordionSidenav">
+                            <nav class="sidenav-menu-nested nav">
+                                <a class="nav-link" href="animations.html">Animations</a>
+                                <a class="nav-link" href="background.html">Background</a>
+                                <a class="nav-link" href="borders.html">Borders</a>
+                                <a class="nav-link" href="lift.html">Lift</a>
+                                <a class="nav-link" href="shadows.html">Shadows</a>
+                                <a class="nav-link" href="typography.html">Typography</a>
+                            </nav>
+                        </div>
+
+
+                        <!-- Sidenav Heading (Addons)-->
+                        <div class="sidenav-menu-heading">Plugins</div>
+
+                        <!-- Sidenav Link (Charts)-->
+                        <a class="nav-link" href="charts.html">
+                            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                            Charts
+                        </a>
+
+                        <!-- Sidenav Link (Tables)-->
+                        <a class="nav-link" href="tables.html">
+                            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                            Tables
+                        </a>
                     </div>
                 </div>
-            </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                <!-- Sidenav Footer-->
+                <div class="sidenav-footer">
+                    <div class="sidenav-footer-content">
+                        <div class="sidenav-footer-subtitle">Logged in as:</div>
+                        <div class="sidenav-footer-title"><?= $_SESSION['fullname']; ?></div>
                     </div>
                 </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
-
-        </ul>
+            </nav>
+        </div>

@@ -1,51 +1,108 @@
-<footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+            <footer class="footer-admin mt-auto footer-light">
+                <div class="container-xl px-4">
+                    <div class="row">
+                        <div class="col-md-6 small">Copyright &copy; <b><?= SITE_NAME .'</b> '. date('Y'); ?></div>
+                        <div class="col-md-6 text-md-end small">
+                            <a href="#!">Privacy Policy</a>
+                            &middot;
+                            <a href="#!">Terms &amp; Conditions</a>
+                        </div>
                     </div>
                 </div>
             </footer>
-            <!-- End of Footer -->
-
         </div>
-        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="<?= ASSETS_URL; ?>js/scripts.js"></script>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="<?= ASSETS_URL;?>plugins/jquery-3.6.0.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?= ASSETS_URL; ?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?= ASSETS_URL; ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const UID = <?= $_SESSION['uid']; ?>; // User ID
+        const TOKEN = '<?= $_SESSION['token']; ?>'; // Session Token
+        //const AUTH_API = `<?= APP_URL; ?>api/auth`; // AUTH API URL [Update Password]
+    </script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="<?= ASSETS_URL; ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- SweetAlert2: https://sweetalert2.github.io/#usage -->
+    <script src="<?= ASSETS_URL; ?>plugins/sweetalert2-11.4.0/sweetalert2.all.min.js"></script><!--- check usage link -->
+    <!--// SweetAlert2 -->
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <!-- Production
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    -->
 
-    <!-- Custom scripts for all pages-->
-    <script src="<?= ASSETS_URL; ?>js/sb-admin-2.min.js"></script>
+    <script>
+        //-- Check User's Internet Connectivity
+        window.addEventListener('load', function(e){
+            if ( navigator.onLine ){
+                console.log('You\'re Online!');
+            } else {
+                Swal.fire({
+                    title: 'Your Internet Is Out! <br>Wait Until You\'re Reconnected.',
+                    heightAuto: false,
+                    icon: 'error',
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                });
+            }
+        }, false);
+        
+        window.addEventListener('online', onlineStatus);
+        window.addEventListener('offline', onlineStatus);
+        function onlineStatus(event){
+            if ( navigator.onLine ){
+                console.log('You\'re Back Online!');
+                Swal.fire({
+                    title: 'You\'re Back Online!',
+                    heightAuto: false,
+                    icon: 'success',
+                    timer: 3500,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                });
+            } else {
+                console.log('You\'re Offline!');
+                Swal.fire({
+                    title: 'Your Internet Is Out! <br>Wait Until You\'re Reconnected.',
+                    heightAuto: false,
+                    icon: 'error',
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                });
+            }
+        }
+        //-----------------------------------
 
-    
+        // onClick of Log Out button's "Continue"
+        function JSLogOut(){
+            JSauthAlertLoader( 'See You Soon... 🤗' );
+            window.location.href = 'Auth.Logout';
+        }
+
+        // SweetAlert2
+        // Show Swal Loader When Submitting to API
+        function JSauthAlertLoader( title ){
+            Swal.fire({
+                title: `${title}`, // Loading...
+                heightAuto: false,
+                padding: '2em',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+        }
+    </script>
+
+    <script src="<?= APP_URL; ?>vuejs/vue.js"></script>
+    <script src="<?= APP_URL; ?>vuejs/axios.js"></script>
+    <!--<script src="<?= APP_URL; ?>vuejs/auth.js"></script>--><!--[Update Password]-->
+
+    <!-- END GLOBAL MANDATORY SCRIPTS -->

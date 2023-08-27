@@ -53,7 +53,7 @@ var auth = new Vue({
                     document.getElementById('loginLoader').style.display = 'block';
                     setTimeout(function(){
                         //$("#statusAlert").fadeOut(delay); // hide alert
-                        window.location.href = "Dashboard";
+                        window.location.href = "Page.Dashboard";
                     }, 4e3);
                 }
                 else {

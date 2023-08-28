@@ -68,7 +68,10 @@ class Auth
 							$row->uid,
 							$row->username
 						];
-						$this->db->query( "UPDATE ". TBL_USR ." SET token=?, online=?, last_login=NOW() WHERE uid=? AND username=?", $params );
+						$this->db->query( "UPDATE ". TBL_USR ." SET token=?, online=?, last_login_time=NOW() WHERE uid=? AND username=?", $params );
+						
+						$this->db->query( "INSERT INTO ". TBL_ULOG ." (uid, log_detail, created_at) VALUES (?, ?, NOW())", [$row->uid, "You <b>logged in</b>."] );
+
                         $output['auth'] = 'success';
 
                         $output['uid'] = $row->uid;

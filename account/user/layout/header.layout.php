@@ -11,6 +11,9 @@ date_default_timezone_set('Africa/Lagos');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+$query = $db->query( "SELECT email FROM ". TBL_USR ." WHERE uid=?", [$_SESSION['uid']] );
+$row = $query->fetch(PDO::FETCH_OBJ);
+
 $max_time = 60*60*24; // in seconds but it is 24hours
 
 if ( !isset($_SESSION['uid']) || $_SESSION["loggedin"] !== true || trim($_SESSION['uid']) == '' ){
@@ -26,7 +29,7 @@ if ( !isset($_SESSION['uid']) || $_SESSION["loggedin"] !== true || trim($_SESSIO
 }
 
 // Log Out User If Login Has Been More Than 24hours
-if ( ($_SESSION['last_login'] + $max_time) < time() ){
+if ( ($_SESSION['last_login_time'] + $max_time) < time() ){
     header( 'Location: '. USER_LOGOUT );
 }
 

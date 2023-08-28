@@ -92,7 +92,7 @@ if ( $action == 'login' ){
                     $_SESSION['fullname'] = $login['fullname']; // Full Name
                     $_SESSION['picture'] = $login['picture']; // Profile Picture
                     $_SESSION['token'] = $login['token']; // Login Token
-                    $_SESSION['last_login'] = time(); // Last Login
+                    $_SESSION['last_login_time'] = time(); // Last Login Time
 
                     $out['error'] = false;
                     $out['notice'] = 'success'; // Notice

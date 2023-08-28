@@ -3,6 +3,9 @@
  * Page.Dashboard.php -- Home/Dashboard Page
  */
 
+require_once '../../classes/Database.class.php'; // Database Class
+$db = new Database();
+
 $menu = 'dashboard'; // Current Menu-Page
 $submenu = null; // Current Submenu-Page
 $pageTitle = 'Dashboard'; // Page Title
@@ -39,7 +42,7 @@ include 'layout/header.layout.php'; // Header
                                 <div class="col-auto mt-4">
                                     <h1 class="page-header-title">
                                         <div class="page-header-icon"><i data-feather="activity"></i></div>
-                                        Dashboard
+                                        <?= $pageTitle; ?>
                                     </h1>
                                     <div class="page-header-subtitle">Example dashboard overview and content summary</div>
                                 </div>
@@ -47,6 +50,7 @@ include 'layout/header.layout.php'; // Header
                         </div>
                     </div>
                 </header>
+
                 <!-- Main page content-->
                 <div class="container-xl px-4 mt-n10">
                     <div class="row">

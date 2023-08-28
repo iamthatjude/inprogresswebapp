@@ -332,7 +332,7 @@ var auth = new Vue({
                 }
             });
         },
-        
+
         // Show Swal Alert for Action Types & API Response
         authAlert: function ( inputField='', title='', message='', statusType='', btnTitle='', reload='', redirect='' ){
             Swal.hideLoading();

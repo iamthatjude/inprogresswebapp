@@ -77,7 +77,7 @@ if ( $action == 'login' ){
                 elseif ( @$login['auth'] == 'wrong' ){ // Username/Password Is Wrong
                     $out['error'] = true;
                     $out['notice'] = 'wrong'; // Notice
-                    $out['message'] = LOGIN_WRONG; // Message
+                    $out['message'] = $login['wrong_message']; // Message
                 }
                 elseif ( (@$login['auth'] == 'success') && (!empty($login['uid']) && !empty($login['username'])) ){ // Log In Successful
                     session_start(); // Start Session

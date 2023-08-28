@@ -43,7 +43,7 @@ class Auth
 
         switch ( $user_type ){
             case "user":
-				$query = $this->db->query( "SELECT uid, username, password, fullname, picture, status FROM ". TBL_USR . " WHERE username=?", [$auth_name] );
+				$query = $this->db->query( "SELECT uid, username, password, fullname, picture, login_error_count, status FROM ". TBL_USR . " WHERE username=?", [$auth_name] );
             	break;
             case "admin":
                 $query = $this->db->query( "SELECT aid, username, password FROM ". TBL_ADM . " WHERE username=?", [$auth_name] );
@@ -70,6 +70,7 @@ class Auth
 						];
 						$this->db->query( "UPDATE ". TBL_USR ." SET token=?, online=?, last_login_time=NOW() WHERE uid=? AND username=?", $params );
 						
+						// Log Report
 						$this->db->query( "INSERT INTO ". TBL_ULOG ." (uid, log_detail, created_at) VALUES (?, ?, NOW())", [$row->uid, "You <b>logged in</b>."] );
 
                         $output['auth'] = 'success';
@@ -84,7 +85,27 @@ class Auth
                         // Log In Successful
                     }
                 } else { // Username/Password Is Wrong
-                    $output['auth'] = 'wrong';
+					if ( $row->login_error_count == LOGIN_ERRMIN_COUNT ){
+						// Increase Login Error Count and Log Report
+						$this->login_error_processesor( $row->uid, $row->username, "", "Log in <b>failed</b>! Your Username/Password was wrong." );
+
+                    	$output['auth'] = 'wrong';
+						$output['wrong_message'] = LOGIN_WRONG;
+					}
+					elseif ( $row->login_error_count == LOGIN_ERRMAX_WARN ){
+						// Increase Login Error Count and Log Report
+						$this->login_error_processesor( $row->uid, $row->username, "", "Log in <b>failed</b>! Your Username/Password was wrong." );
+
+						$output['auth'] = 'wrong';
+						$output['wrong_message'] = LOGIN_ERRMSG_WARN;
+					}
+					elseif ( $row->login_error_count == LOGIN_ERRMAX_COUNT ){
+						// Suspend Account and Log Report
+						$this->login_error_processesor( $row->uid, $row->username, "suspend", "<b>Account Suspended</b>!" );
+
+						$output['auth'] = 'wrong';
+						$output['wrong_message'] = LOGIN_ERRMSG_COUNT;
+					}
                 }
             } else { // Account Does Not Exist
                 $output['auth'] = 'nonexistent';
@@ -97,6 +118,20 @@ class Auth
         unset($query);
         return $output;
     }
+	// 1.1. Login Error Account Processor
+	public function login_error_processesor( $user_id, $username="", $status="", $log_msg )
+	{
+		if ( $status == "suspend" ){
+			// Suspend Account
+			$this->db->query( "UPDATE ". TBL_USR ." SET status=? WHERE uid=? AND username=?", ["suspended", $user_id, $username] );
+		} else {
+			// Increase Login Error Count
+			$this->db->query( "UPDATE ". TBL_USR ." SET login_error_count=login_error_count+1 WHERE uid=? AND username=?", [$user_id, $username] );
+		}
+
+		// Log Error Report
+		$this->db->query( "INSERT INTO ". TBL_ULOG ." (uid, log_detail, created_at) VALUES (?, ?, NOW())", [$user_id, $log_msg] );
+	}
 
 
     // 2. Register

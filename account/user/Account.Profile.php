@@ -128,7 +128,7 @@ include 'layout/header.layout.php'; // Header
                                             <!-- Form Group (birthday)-->
                                             <div class="col-md-6">
                                                 <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                                <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988" />
+                                                <input class="form-control" id="inputBirthday" type="date" name="birthday" placeholder="Enter your birthday" value="06/10/1988" />
                                             </div>
                                         </div>
                                         <!-- Save changes button-->

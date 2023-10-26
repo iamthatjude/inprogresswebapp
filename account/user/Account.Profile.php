@@ -54,10 +54,10 @@ include 'layout/header.layout.php'; // Header
                 <div class="container-xl px-4 mt-4">
                     <!-- Account page navigation-->
                     <nav class="nav nav-borders">
-                        <a class="nav-link active ms-0" href="<?= USER_PROFILE; ?>">Profile</a>
-                        <a class="nav-link" href="<?= USER_BILLING; ?>">Billing</a>
-                        <a class="nav-link" href="<?= USER_SECURITY; ?>">Security</a>
-                        <a class="nav-link" href="<?= USER_NOTIFICATIONS; ?>">Notifications</a>
+                        <a class="nav-link <? if ($submenu=='profile') echo 'active ms-0'; ?>" href="<?= USER_PROFILE; ?>">Profile</a>
+                        <a class="nav-link <? if ($submenu=='billing') echo 'active ms-0'; ?>" href="<?= USER_BILLING; ?>">Billing</a>
+                        <a class="nav-link <? if ($submenu=='security') echo 'active ms-0'; ?>" href="<?= USER_SECURITY; ?>">Security</a>
+                        <a class="nav-link <? if ($submenu=='notifications') echo 'active ms-0'; ?>" href="<?= USER_NOTIFICATIONS; ?>">Notifications</a>
                     </nav>
                     <hr class="mt-0 mb-4" />
 
@@ -102,33 +102,33 @@ include 'layout/header.layout.php'; // Header
                                         </div>
                                         <!-- Form Row        -->
                                         <div class="row gx-3 mb-3">
-                                            <!-- Form Group (organization name)-->
+                                            <!-- Form Group (occupation)-->
                                             <div class="col-md-6">
-                                                <label class="small mb-1" for="inputOrgName">Organization name</label>
-                                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="Start Bootstrap" />
+                                                <label class="small mb-1" for="occupation">Occupation</label>
+                                                <input class="form-control" id="occupation" name="occupation" v-model="" type="text" placeholder="Enter your occupation" />
                                             </div>
-                                            <!-- Form Group (location)-->
+                                            <!-- Form Group (address)-->
                                             <div class="col-md-6">
-                                                <label class="small mb-1" for="inputLocation">Location</label>
-                                                <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="San Francisco, CA" />
+                                                <label class="small mb-1" for="address">Address</label>
+                                                <input class="form-control" id="address" name="address" v-model="" type="text" placeholder="Enter your address" />
                                             </div>
                                         </div>
                                         <!-- Form Group (email address)-->
                                         <div class="mb-3">
-                                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com" />
+                                            <label class="small mb-1" for="email">Email address</label>
+                                            <input class="form-control" id="email" name="email" v-model="" type="email" placeholder="Enter your email address" />
                                         </div>
                                         <!-- Form Row-->
                                         <div class="row gx-3 mb-3">
                                             <!-- Form Group (phone number)-->
                                             <div class="col-md-6">
-                                                <label class="small mb-1" for="inputPhone">Phone number</label>
-                                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567" />
+                                                <label class="small mb-1" for="phone">Phone number</label>
+                                                <input class="form-control" id="phone" name="phone" v-model="" type="tel" placeholder="Enter your phone number" />
                                             </div>
                                             <!-- Form Group (birthday)-->
                                             <div class="col-md-6">
-                                                <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                                <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988" />
+                                                <label class="small mb-1" for="birthday">Birthday</label>
+                                                <input class="form-control" id="birthday" name="birthday" v-model="" type="date" placeholder="06/10/1988" value="06/10/1988" />
                                             </div>
                                         </div>
                                         <!-- Save changes button-->

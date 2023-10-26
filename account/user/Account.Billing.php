@@ -1,6 +1,6 @@
 <?php
 /**
- * Account.Profile.php -- Profile Page
+ * Account.Billing.php -- Billing Page
  */
 
 require_once '../../classes/Database.class.php'; // Database Class

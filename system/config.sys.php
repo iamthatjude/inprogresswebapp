@@ -15,7 +15,7 @@ else {
 }
 
 //--Local
-$base_url = ($ssl) ."://". $_SERVER['HTTP_HOST'] ."/dir/inprogresswebapp";
+$base_url = ($ssl) ."://". $_SERVER['HTTP_HOST'] ."/inprogresswebapp";
 //--Online
 //$base_url = ($ssl) ."://". $_SERVER['HTTP_HOST'];
 //$base_url = ($ssl) ."://". $_SERVER['HTTP_HOST'] ."/";

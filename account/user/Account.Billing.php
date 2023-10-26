@@ -7,7 +7,7 @@ require_once '../../classes/Database.class.php'; // Database Class
 $db = new Database();
 
 $menu = 'account'; // Current Menu-Page
-$submenu = 'profile'; // Current Submenu-Page
+$submenu = 'billing'; // Current Submenu-Page
 $pageTitle = 'Account Settings - Billing'; // Page Title
 
 include '../../system/config.sys.php'; // Configurations

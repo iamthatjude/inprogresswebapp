@@ -7,7 +7,7 @@ require_once '../../classes/Database.class.php'; // Database Class
 $db = new Database();
 
 $menu = 'account'; // Current Menu-Page
-$submenu = 'profile'; // Current Submenu-Page
+$submenu = 'notifications'; // Current Submenu-Page
 $pageTitle = 'Account Settings - Notifications'; // Page Title
 
 include '../../system/config.sys.php'; // Configurations

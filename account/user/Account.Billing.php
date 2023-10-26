@@ -51,10 +51,10 @@ include 'layout/header.layout.php'; // Header
                     <div class="container-xl px-4 mt-4">
                         <!-- Account page navigation-->
                         <nav class="nav nav-borders">
-                            <a class="nav-link active ms-0" href="<?= USER_PROFILE; ?>">Profile</a>
-                            <a class="nav-link" href="<?= USER_BILLING; ?>">Billing</a>
-                            <a class="nav-link" href="<?= USER_SECURITY; ?>">Security</a>
-                            <a class="nav-link" href="<?= USER_NOTIFICATIONS; ?>">Notifications</a>
+                        <a class="nav-link <? if ($submenu=='profile') echo 'active ms-0'; ?>" href="<?= USER_PROFILE; ?>">Profile</a>
+                        <a class="nav-link <? if ($submenu=='billing') echo 'active ms-0'; ?>" href="<?= USER_BILLING; ?>">Billing</a>
+                        <a class="nav-link <? if ($submenu=='security') echo 'active ms-0'; ?>" href="<?= USER_SECURITY; ?>">Security</a>
+                        <a class="nav-link <? if ($submenu=='notifications') echo 'active ms-0'; ?>" href="<?= USER_NOTIFICATIONS; ?>">Notifications</a>
                         </nav>
                         <hr class="mt-0 mb-4" />
                         <div class="row">

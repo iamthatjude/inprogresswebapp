@@ -8,6 +8,7 @@ $db = new Database();
 
 include '../../system/config.sys.php'; // Configurations
 include '../../system/constants.sys.php'; // Defined Constants
+include '../../system/texts.sys.php'; // System Texts Constatnts
 
 session_start();
 

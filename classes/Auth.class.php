@@ -71,7 +71,7 @@ class Auth
 						$this->db->query( "UPDATE ". TBL_USR ." SET token=?, online=?, last_login_time=NOW() WHERE uid=? AND username=?", $params );
 						
 						// Log Report
-						$this->db->query( "INSERT INTO ". TBL_ULOG ." (uid, log_detail, created_at) VALUES (?, ?, NOW())", [$row->uid, "You <b>logged in</b>."] );
+						$this->db->query( "INSERT INTO ". TBL_ULOG ." (uid, log_detail, created_at) VALUES (?, ?, NOW())", [$row->uid, USERLOG_LOGIN_SUCCESS] );
 
                         $output['auth'] = 'success';
 
@@ -87,21 +87,21 @@ class Auth
                 } else { // Username/Password Is Wrong
 					if ( $row->login_error_count == LOGIN_ERRMIN_COUNT ){
 						// Increase Login Error Count and Log Report
-						$this->login_error_processesor( $row->uid, $row->username, "", "Log in <b>failed</b>! Your Username/Password was wrong." );
+						$this->login_error_processesor( $row->uid, $row->username, "", USERLOG_LOGIN_UP_FAILED );
 
                     	$output['auth'] = 'wrong';
 						$output['wrong_message'] = LOGIN_WRONG;
 					}
 					elseif ( $row->login_error_count == LOGIN_ERRMAX_WARN ){
 						// Increase Login Error Count and Log Report
-						$this->login_error_processesor( $row->uid, $row->username, "", "Log in <b>failed</b>! Your Username/Password was wrong." );
+						$this->login_error_processesor( $row->uid, $row->username, "", USERLOG_LOGIN_UP_FAILED );
 
 						$output['auth'] = 'wrong';
 						$output['wrong_message'] = LOGIN_ERRMSG_WARN;
 					}
 					elseif ( $row->login_error_count == LOGIN_ERRMAX_COUNT ){
 						// Suspend Account and Log Report
-						$this->login_error_processesor( $row->uid, $row->username, "suspend", "<b>Account Suspended</b>!" );
+						$this->login_error_processesor( $row->uid, $row->username, "suspend", USERLOG_LOGIN_SUSPENDED );
 
 						$output['auth'] = 'wrong';
 						$output['wrong_message'] = LOGIN_ERRMSG_COUNT;

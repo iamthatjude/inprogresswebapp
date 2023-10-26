@@ -3,8 +3,8 @@
  * functions.sys.php -- Functions
  */
 
-// Set Up Texts
-require 'texts.sys.php';
+
+require 'texts.sys.php'; // System Texts Constatnts
 
 
 // Time Ago functionality

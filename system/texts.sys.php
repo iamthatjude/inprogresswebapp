@@ -43,6 +43,12 @@ define( 'REGISTER_SUCCESS_CODESENT', 'Your Registration Was Successful.<br>Check
 define( 'REGISTER_SUCCESS_CODENOTSENT', 'Your Registration Was Successful But We Couldn\'t Send You An Email.<br>Here is your code: ' );
 define( 'REGISTER_FAILED', 'Account Creation Failed; Try Again or Contact Admin: ' );
 
+// Users:
+// Log Messages
+define( 'USERLOG_LOGIN_SUCCESS', 'You <b>logged in</b>.' );
+define( 'USERLOG_LOGIN_UP_FAILED', 'Log in <b>failed</b>! Your Username/Password was wrong.' );
+define( 'USERLOG_LOGIN_SUSPENDED', '<b>Account Suspended</b>!' );
+
 // Order Messages
 define( 'ORDER_EXISTS', 'This Order Already Exists!' );
 define( 'ORDER_DOESNTEXIST', 'This Order Doesn\'t Seem To Exist!' );

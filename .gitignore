@@ -13,6 +13,8 @@
 classes/Auth__old.class.php
 account/user/Auth.Login2.php
 system/config__old.sys.php
+system/config.sys.php
+.DS_Store
 
 # Ignore directories
 extras/
